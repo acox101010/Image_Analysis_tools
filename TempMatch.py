@@ -32,8 +32,8 @@ for fil in glob.glob("*.jpeg"):
                 plt.imshow(image)
                 
             with open("match_results.csv",'a',newline='') as csvfile:
-                spamwriter.writerow(["Data"])
                 spamwriter = csv.writer(csvfile, delimiter=' ')
+                spamwriter.writerow(["Data"])
                 spamwriter.writerow([fil, "_TempMatch"])
         else:
             detectedObjects = detectedObjects+1
