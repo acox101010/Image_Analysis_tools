@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
+import pandas as pd
 
 template = cv2.imread(r"M:\tempMatchTest\temp.jpg",0) #directory of template
 w, h = template.shape[::-1] #finds shape of template
