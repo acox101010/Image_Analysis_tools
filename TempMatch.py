@@ -15,6 +15,12 @@ w, h = template.shape[::-1] #finds shape of template
 detectedObjects = 0 #variable for counting image iteration
 plt.imshow(template) #shows template
 
+#Writing initial row to csv for data processing purposes
+ofile  = open('match_results.csv', "w")
+writer = csv.writer(ofile, delimiter=' ')
+writer.writerow(["Data"])
+ofile.close()
+
 for fil in glob.glob("*.jpeg"):
     image = cv2.imread(fil) #read image global image files in directory
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # convert to greyscale
