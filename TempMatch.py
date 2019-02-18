@@ -31,6 +31,7 @@ for fil in glob.glob("*.jpeg"):
                 plt.imshow(image)
                 
             with open("match_results.csv",'a',newline='') as csvfile:
+                spamwriter.writerow(["Data"])
                 spamwriter = csv.writer(csvfile, delimiter=' ')
                 spamwriter.writerow([fil, "_TempMatch"])
         else:
@@ -45,5 +46,9 @@ for fil in glob.glob("*.jpeg"):
 
         cv2.destroyAllWindows()
         cv2.waitKey(0)
-
+        
+#load data set from csv into data frame
+test_df = pd.read_csv("match_results.csv",header=0)
+dat_bool = test_df.Data.str.contains('TempMatch')
+print(dat_bool)
     
