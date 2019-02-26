@@ -39,7 +39,6 @@ for fil in glob.glob("*.jpeg"):
                 
             with open("match_results.csv",'a',newline='') as csvfile:
                 spamwriter = csv.writer(csvfile, delimiter=' ')
-                spamwriter.writerow(["Data"])
                 spamwriter.writerow([fil, "_TempMatch"])
         else:
             detectedObjects = detectedObjects+1
@@ -55,7 +54,10 @@ for fil in glob.glob("*.jpeg"):
         cv2.waitKey(0)
         
 #load data set from csv into data frame
-test_df = pd.read_csv("match_results.csv",header=0)
-dat_bool = test_df.Data.str.contains('TempMatch')
+df = pd.read_csv("match_results.csv")
+im_dat = df['Data'].values
+print("Dimensions of y before reshaping: {}".format(im_dat.shape))
+im_dat = im_dat.reshape(-1,1)
+print(df.describe())
+dat_bool = df.Data.str.contains('TempMatch')
 print(dat_bool)
-    
