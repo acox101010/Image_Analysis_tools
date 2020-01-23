@@ -38,7 +38,7 @@ plt.title('Crosshair Removal Area', fontdict=None, loc='center', pad=None, fonts
 plt.imshow(cr_roi) #plot last image with all points
 
 #Set determined crosshair area to 0 
-cr_roi[385:475,475:560] = 0
+cr_roi[383:477,473:563] = 0
 f, ax = plt.subplots(1,1,figsize=(10,7))
 plt.title('Cropped Image', fontdict=None, loc='center', pad=None, fontsize = 20)
 plt.imshow(cr_roi) #plot last image with all points
